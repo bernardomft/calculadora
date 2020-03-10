@@ -7,17 +7,11 @@ import javax.swing.JTextField;
 
 class NueveBoton extends Calculadora implements ActionListener 
 {
-		JTextField display;
-		public NueveBoton() {}
-		public NueveBoton(JTextField display) 
-		{
-			this.display = display;
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			if(this.display.getText().equals("0"))
-				this.display.setText("9");
+	public void actionPerformed(ActionEvent e)
+	{
+			if(display.getText().equals("0"))
+				display.setText("9");
 			else
-				this.display.setText(display.getText() + "9");
-		}
+				display.setText(display.getText() + "9");
+	}
 }

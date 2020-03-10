@@ -7,14 +7,8 @@ import javax.swing.JTextField;
 
 class CBoton extends Calculadora implements ActionListener 
 {
-		JTextField display;
-		public CBoton() {}
-		public CBoton(JTextField display) 
+	public void actionPerformed(ActionEvent e)
 		{
-			this.display = display;
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			this.display.setText("0");
+			display.setText("0");
 		}
 }

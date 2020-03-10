@@ -5,13 +5,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
-class CuatroBoton extends Calculadora implements ActionListener 
+class PuntoBoton extends Calculadora implements ActionListener 
 {
-	public void actionPerformed(ActionEvent e)
+	
+		public void actionPerformed(ActionEvent e)
 		{
 			if(display.getText().equals("0"))
-				display.setText("4");
+				display.setText(".");
 			else
-				display.setText(display.getText() + "4");
+				display.setText(display.getText() + ".");
 		}
 }

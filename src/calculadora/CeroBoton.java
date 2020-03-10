@@ -7,17 +7,11 @@ import javax.swing.JTextField;
 
 class CeroBoton extends Calculadora implements ActionListener 
 {
-		JTextField display;
-		public CeroBoton() {}
-		public CeroBoton(JTextField display) 
-		{
-			this.display = display;
-		}
-		public void actionPerformed(ActionEvent e)
-		{
-			if(this.display.getText().equals("0"))
-				this.display.setText("0");
+	public void actionPerformed(ActionEvent e)
+	{
+			if(display.getText().equals("0"))
+				display.setText("0");
 			else
-				this.display.setText(display.getText() + "0");
-		}
+				display.setText(display.getText() + "0");
+	}
 }

@@ -8,312 +8,131 @@ import javax.swing.*;
 
 public class Calculadora extends JFrame
 {
-	JButton	uno = new JButton("1");	
-	JButton	dos = new JButton("2");
-	JButton	tres = new JButton("3");
-	JButton	cuatro = new JButton("4");
-	JButton	cinco = new JButton("5");
-	JButton	seis = new JButton("6");
-	JButton	siete = new JButton("7");
-	JButton	ocho = new JButton("8");
 	
-	JButton	nueve = new JButton("9");
-	JButton	cero = new JButton("0");
-	JButton	c = new JButton("C");
-	JButton	ac = new JButton("AC");
-	
-	JButton	inv = new JButton("1/x");
-	JButton	ret = new JButton("R");
-	JButton	porc = new JButton("%");
-	JButton	punto = new JButton(".");
-	
-	JButton	cuadrado = new JButton("X^2");
-	JButton	raiz = new JButton("raiz^2");
-	JButton	cubo = new JButton("X^3");
-	JButton	raizC = new JButton("raiz^3");
-	
-	JButton	suma = new JButton("+");
-	JButton	resta = new JButton("-");
-	JButton	multiplicacion = new JButton("x");
-	JButton	division = new JButton("/");
-	JButton	igual = new JButton("=");
-	
-	
-	JButton	normal = new JButton("NORMAL MODE");
-	JButton	sci = new JButton("SCI MODE");
-	
-	JTextField display = new JTextField(40);
-	
-	JPanel panel = new JPanel();
-	JPanel panel2 = new JPanel();
-	JPanel panel3 = new JPanel();
+	static JTextField display = new JTextField(40);
+	JTextField displayFixed = new JTextField(1);
 	
 	double termino1 = 0;
 	double termino2 = 0;
 	double res = 0;
 	
 	String op;
+	String mode = new String("NORMAL");
 	
 
-	public Calculadora()
-	{
-		super("ULTIMATE CALCULATOR");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
-		
-		panel2.setLayout(new GridLayout(2,1));
-		
-		panel2.add(normal);
-		panel2.add(sci);
-		
-		add(panel2, BorderLayout.WEST);
-		
-		display.setText("0");
-		
-		panel3.add(display);
-		add(panel3, BorderLayout.NORTH);
-		
-		uno.addActionListener(new unoBoton());
-		dos.addActionListener(new dosBoton());
-		tres.addActionListener(new tresBoton());
-		cuatro.addActionListener(new cuatroBoton());
-		
-		cinco.addActionListener(new cincoBoton());
-		seis.addActionListener(new seisBoton());
-		siete.addActionListener(new sieteBoton());
-		ocho.addActionListener(new ochoBoton());
-		
-		nueve.addActionListener(new nueveBoton());
-		cero.addActionListener(new ceroBoton());
-		c.addActionListener(new cBoton());
-		ac.addActionListener(new acBoton());
-		
-		inv.addActionListener(new invBoton());
-		ret.addActionListener(new retBoton());
-		porc.addActionListener(new porcBoton());
-		punto.addActionListener(new puntoBoton());
-		
-		cuadrado.addActionListener(new cuadradoBoton());
-		raiz.addActionListener(new raizBoton());
-		cubo.addActionListener(new cuboBoton());
-		raizC.addActionListener(new raizCBoton());
-		
-		suma.addActionListener(new suma());
-		resta.addActionListener(new resta());
-		multiplicacion.addActionListener(new multiplicacion());
-		division.addActionListener(new division());
-		igual.addActionListener(new igual());
-		
-		
-		panel.setLayout(new GridLayout(7,4));
-		
-		panel.add(uno);
-		panel.add(dos);
-		panel.add(tres);
-		panel.add(cuatro);
-		
-		panel.add(cinco);
-		panel.add(seis);
-		panel.add(siete);
-		panel.add(ocho);
-		
-		panel.add(nueve);
-		panel.add(cero);
-		panel.add(c);
-		panel.add(ac);
-		
-		panel.add(inv);
-		panel.add(ret);
-		panel.add(porc);
-		panel.add(punto);
-		
-		panel.add(cuadrado);
-		panel.add(raiz);
-		panel.add(cubo);
-		panel.add(raizC);
-		
-		panel.add(suma);
-		panel.add(resta);
-		
-		panel.add(multiplicacion);
-		panel.add(division);
-		panel.add(igual);
-		
-		panel.add(new JLabel(""));
-		
-		panel.add(new JLabel(""));
-		
-		add(panel, BorderLayout.CENTER);
-		setSize(600,300);
-		//pack();
-		setBackground(Color.BLACK);
-		setLocationRelativeTo(null); 				
-		setResizable(false); 						
-		setVisible(true); 	
-	}
+	public Calculadora() {}
 	
 	public static void main(String[] args)
 	{
 		Calculadora obj = new Calculadora();
+		JFrame frame = new JFrame("ULTIMATE CALCULATOR");
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setLayout(new BorderLayout());
 		
-	}
-
-	class unoBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("1");
-			else
-				display.setText(display.getText() + "1");
-		}
-	}
-	
-	class dosBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("2");
-			else
-				display.setText(display.getText() + "2");
-		}
-	}
-	
-	class tresBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("3");
-			else
-				display.setText(display.getText() + "3");
-		}
-	}
-	
-	class cuatroBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("4");
-			else
-				display.setText(display.getText() + "4");
-		}
-	}
-	
-	class cincoBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("5");
-			else
-				display.setText(display.getText() + "5");
-		}
-	}
-	
-	class seisBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("6");
-			else
-				display.setText(display.getText() + "6");
-		}
-	}
-	
-	class sieteBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("7");
-			else
-				display.setText(display.getText() + "7");
-		}
-	}
-	
-	class ochoBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("8");
-			else
-				display.setText(display.getText() + "8");
-		}
-	}
-	
-	class nueveBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("9");
-			else
-				display.setText(display.getText() + "9");
-		}
-	}
-	
-	class ceroBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(display.getText().equals("0"))
-				display.setText("0");
-			else
-				display.setText(display.getText() + "0");
-		}
+		Botones objBoton = new Botones();
+		Paneles objPaneles = new Paneles();
+		
+		//Panel izqd
+		objPaneles.panel2.setLayout(new GridLayout(3,1));
+		
+		objPaneles.panel2.add(objBoton.normal);
+		objPaneles.panel2.add(objBoton.sci);
+		objPaneles.panel2.add(objBoton.fixed);
+		
+		//objBoton.uno.addActionListener(new fixedBoton());
+		
+		frame.add(objPaneles.panel2, BorderLayout.WEST);
+		
+		//Panel central y botones en modo normal
+		obj.display.setText("0");
+		
+		objPaneles.panel3.add(obj.display);
+		frame.add(objPaneles.panel3, BorderLayout.NORTH);
+		
+		objBoton.uno.addActionListener(new UnoBoton(display));
+		objBoton.dos.addActionListener(new DosBoton(display));
+		objBoton.tres.addActionListener(new TresBoton(display));
+		objBoton.cuatro.addActionListener(new CuatroBoton(display));
+		
+		objBoton.cinco.addActionListener(new CincoBoton(display));
+		objBoton.seis.addActionListener(new SeisBoton(display));
+		objBoton.siete.addActionListener(new SieteBoton(display));
+		objBoton.ocho.addActionListener(new OchoBoton(display));
+		
+		objBoton.nueve.addActionListener(new NueveBoton(display));
+		objBoton.cero.addActionListener(new CeroBoton(display));
+		objBoton.c.addActionListener(new CBoton(display));
+		objBoton.ac.addActionListener(new AcBoton(display,obj.termino1,obj.termino2));
+		
+		objBoton.inv.addActionListener(new InvBoton(display,obj.termino1,obj.termino2));
+		objBoton.ret.addActionListener(new RetBoton(display,obj.termino1));
+		objBoton.porc.addActionListener(new PorcBoton(display, obj.termino1,obj));
+		/*objBoton.punto.addActionListener(new puntoBoton());
+		
+		objBoton.cuadrado.addActionListener(new cuadradoBoton());
+		objBoton.raiz.addActionListener(new raizBoton());
+		objBoton.cubo.addActionListener(new cuboBoton());
+		objBoton.raizC.addActionListener(new raizCBoton());
+		
+		objBoton.suma.addActionListener(new suma());
+		objBoton.resta.addActionListener(new resta());
+		objBoton.multiplicacion.addActionListener(new multiplicacion());
+		objBoton.division.addActionListener(new division());
+		*/
+		objBoton.igual.addActionListener(new IgualBoton(display,obj));
+		
+		
+		objPaneles.panel.setLayout(new GridLayout(7,4));
+		
+		objPaneles.panel.add(objBoton.uno);
+		objPaneles.panel.add(objBoton.dos);
+		objPaneles.panel.add(objBoton.tres);
+		objPaneles.panel.add(objBoton.cuatro);
+		
+		objPaneles.panel.add(objBoton.cinco);
+		objPaneles.panel.add(objBoton.seis);
+		objPaneles.panel.add(objBoton.siete);
+		objPaneles.panel.add(objBoton.ocho);
+		
+		objPaneles.panel.add(objBoton.nueve);
+		objPaneles.panel.add(objBoton.cero);
+		objPaneles.panel.add(objBoton.c);
+		objPaneles.panel.add(objBoton.ac);
+		
+		objPaneles.panel.add(objBoton.inv);
+		objPaneles.panel.add(objBoton.ret);
+		objPaneles.panel.add(objBoton.porc);
+		objPaneles.panel.add(objBoton.punto);
+		
+		objPaneles.panel.add(objBoton.cuadrado);
+		objPaneles.panel.add(objBoton.raiz);
+		objPaneles.panel.add(objBoton.cubo);
+		objPaneles.panel.add(objBoton.raizC);
+		
+		objPaneles.panel.add(objBoton.suma);
+		objPaneles.panel.add(objBoton.resta);
+		
+		objPaneles.panel.add(objBoton.multiplicacion);
+		objPaneles.panel.add(objBoton.division);
+		objPaneles.panel.add(objBoton.igual);
+		
+		objPaneles.panel.add(new JLabel(""));
+		
+		objPaneles.panel.add(new JLabel(""));
+		
+		frame.add(objPaneles.panel, BorderLayout.CENTER);
+		
+		frame.setSize(600,300);
+		//pack();
+		frame.setBackground(Color.BLACK);
+		frame.setLocationRelativeTo(null); 				
+		frame.setResizable(false); 						
+		frame.setVisible(true); 	
+		//System.out.println(mode);
+		
+		//System.out.println(obj.mode);
 	}
 	
-	class cBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			display.setText("0");
-		}
-	}
-	
-	class acBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			display.setText("0");
-			termino1 = 0;
-			termino2 = 0;
-		}
-	}
-	
-	class invBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			termino1 =  Double.parseDouble(display.getText());
-			res =(1 / termino1) ;
-			display.setText(String.valueOf(res));
-		}
-	}
-	
-	class retBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			termino1 = Double.parseDouble(display.getText());
-			display.setText(display.getText().substring(0,display.getText().length()-1));
-		}
-	}
-	
-	class porcBoton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			termino1 = Double.parseDouble(display.getText());
-			display.setText("");
-			op = "%";
-		}
-	}
 	
 	class puntoBoton implements ActionListener
 	{
@@ -431,6 +250,14 @@ public class Calculadora extends JFrame
 			//if(res == 0.00)
 				//display.setText("0");
 			display.setText(String.valueOf(res));
+		}
+	}
+	
+	class fixedBoton implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			mode = "fixed";	
 		}
 	}
 }

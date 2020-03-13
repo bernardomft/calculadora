@@ -18,7 +18,7 @@ public class Calculadora extends JFrame
 	static double res = 0;
 	
 	static String op = "";
-	String mode = new String("NORMAL");
+	static String mode = new String("N");
 	static JPanel panel = new JPanel();
 	static JPanel panelFixed = new JPanel();
 	

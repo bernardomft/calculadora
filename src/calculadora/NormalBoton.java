@@ -12,7 +12,10 @@ public class NormalBoton extends Calculadora implements ActionListener
 {
 	public void actionPerformed(ActionEvent e)
 	{
-	
+		//Botones objBoton3 = new Botones();
+		
+		panelFixed.setVisible(false);
+		panel.setVisible(true);
 		
 	}
 }

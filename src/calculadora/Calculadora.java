@@ -11,6 +11,7 @@ public class Calculadora extends JFrame
 	
 	static JTextField display = new JTextField(40);
 	static JTextField displayAux = new JTextField(40);
+	static JTextField displayFixed = new JTextField(40);
 	
 	static double termino1 = 0;
 	static double termino2 = 0;
@@ -19,8 +20,9 @@ public class Calculadora extends JFrame
 	static String op = "";
 	String mode = new String("NORMAL");
 	static JPanel panel = new JPanel();
+	static JPanel panelFixed = new JPanel();
 	
-
+	static JFrame frame = new JFrame("ULTIMATE CALCULATOR");
 	public Calculadora() 
 	{
 		 	this.termino1 = 0;
@@ -33,8 +35,6 @@ public class Calculadora extends JFrame
 	
 	public static void main(String[] args)
 	{
-		Calculadora obj = new Calculadora();
-		JFrame frame = new JFrame("ULTIMATE CALCULATOR");
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		
@@ -55,42 +55,11 @@ public class Calculadora extends JFrame
 		frame.add(objPaneles.panel2, BorderLayout.WEST);
 		
 		//Panel central y botones en modo normal
-		obj.display.setText("0");
+		display.setText("0");
 		
-		objPaneles.panel3.add(obj.display);
+		objPaneles.panel3.add(display);
 		frame.add(objPaneles.panel3, BorderLayout.NORTH);
 		
-		objBoton.uno.addActionListener(new UnoBoton());
-		objBoton.dos.addActionListener(new DosBoton());
-		objBoton.tres.addActionListener(new TresBoton());
-		objBoton.cuatro.addActionListener(new CuatroBoton());
-		
-		objBoton.cinco.addActionListener(new CincoBoton());
-		objBoton.seis.addActionListener(new SeisBoton());
-		objBoton.siete.addActionListener(new SieteBoton());
-		objBoton.ocho.addActionListener(new OchoBoton());
-		
-		objBoton.nueve.addActionListener(new NueveBoton());
-		objBoton.cero.addActionListener(new CeroBoton());
-		objBoton.c.addActionListener(new CBoton());
-		objBoton.ac.addActionListener(new AcBoton());
-		
-		objBoton.inv.addActionListener(new InvBoton());
-		objBoton.ret.addActionListener(new RetBoton());
-		objBoton.porc.addActionListener(new PorcBoton());
-		objBoton.punto.addActionListener(new PuntoBoton());
-		
-		objBoton.cuadrado.addActionListener(new CuadradoBoton());
-		objBoton.raiz.addActionListener(new RaizBoton());
-		objBoton.cubo.addActionListener(new CuboBoton());
-		objBoton.raizC.addActionListener(new RaizCBoton());
-		
-		objBoton.suma.addActionListener(new SumaBoton());
-		objBoton.resta.addActionListener(new RestaBoton());
-		objBoton.multiplicacion.addActionListener(new MultiplicacionBoton());
-		objBoton.division.addActionListener(new DivisionBoton());
-		
-		objBoton.igual.addActionListener(new IgualBoton());
 		
 		panel.setLayout(new GridLayout(7,4));
 		
@@ -126,16 +95,55 @@ public class Calculadora extends JFrame
 		panel.add(objBoton.division);
 		panel.add(objBoton.igual);
 		
-		panel.add(new JLabel(""));
 		
-		panel.add(new JLabel(""));
 		
+		/*panelFixed.setLayout(new GridLayout(7,4));
+		
+		panelFixed.add(objBoton.uno);
+		panelFixed.add(objBoton.dos);
+		panelFixed.add(objBoton.tres);
+		panelFixed.add(objBoton.cuatro);
+		
+		panelFixed.add(objBoton.cinco);
+		panelFixed.add(objBoton.seis);
+		panelFixed.add(objBoton.siete);
+		panelFixed.add(objBoton.ocho);
+		
+		panelFixed.add(objBoton.nueve);
+		panelFixed.add(objBoton.cero);
+		panelFixed.add(objBoton.c);
+		panelFixed.add(objBoton.ac);
+		
+		panelFixed.add(objBoton.inv);
+		panelFixed.add(objBoton.ret);
+		panelFixed.add(objBoton.porc);
+		panelFixed.add(objBoton.punto);
+		
+		panelFixed.add(objBoton.cuadrado);
+		panelFixed.add(objBoton.raiz);
+		panelFixed.add(objBoton.cubo);
+		panelFixed.add(objBoton.raizC);
+		
+		panelFixed.add(objBoton.suma);
+		panelFixed.add(objBoton.resta);
+		
+		panelFixed.add(objBoton.multiplicacion);
+		panelFixed.add(objBoton.division);
+		panelFixed.add(objBoton.igual);
+		
+		panelFixed.add(new JLabel(""));
+		panelFixed.add(displayFixed);
+		
+		
+		panelFixed.setVisible(false);
+		*/
 		frame.add(panel, BorderLayout.CENTER);
+		//frame.add(panelFixed, BorderLayout.CENTER);
 		
-		//Ahora tengo que cerrar el panel y colocar el panel fixed.
 		
+	
 		frame.setSize(600,300);
-		//pack();
+		//frame.pack();
 		frame.setBackground(Color.BLACK);
 		frame.setLocationRelativeTo(null); 				
 		frame.setResizable(false); 						

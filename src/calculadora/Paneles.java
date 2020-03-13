@@ -7,5 +7,5 @@ public class Paneles
 	//static JPanel panel = new JPanel();
 	static JPanel panel2 = new JPanel();
 	static JPanel panel3 = new JPanel();
-	static JPanel panelFixed = new JPanel();
+	
 }

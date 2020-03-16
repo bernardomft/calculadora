@@ -14,11 +14,12 @@ public  class FixedBoton extends Calculadora implements ActionListener
 {
 	public void actionPerformed(ActionEvent e)
 	{
-		mode = "F";
 		Botones objBoton2 = new Botones();
 		panelFixed.removeAll();
 		panelFixed.setLayout(new GridLayout(7,4));
 		
+		objBoton2.igual.removeAll();
+		objBoton2.igual.addActionListener(new IgualBotonFixed());
 		panelFixed.add(objBoton2.uno);
 		panelFixed.add(objBoton2.dos);
 		panelFixed.add(objBoton2.tres);

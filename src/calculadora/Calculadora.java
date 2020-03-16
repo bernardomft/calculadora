@@ -16,9 +16,11 @@ public class Calculadora extends JFrame
 	static double termino1 = 0;
 	static double termino2 = 0;
 	static double res = 0;
+	static double resFixed = 0;
 	
 	static String op = "";
-	static String mode = new String("N");
+	static String mode = "";
+	
 	static JPanel panel = new JPanel();
 	static JPanel panelFixed = new JPanel();
 	
@@ -30,9 +32,13 @@ public class Calculadora extends JFrame
 			this.res = 0;
 			
 			this.op = "";
-			this.mode = new String("NORMAL");
+			this.mode = "N";
 	}
 	
+	public static void changeMode(String s)
+	{
+		mode = s;
+	}
 	public static void main(String[] args)
 	{
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -47,9 +53,6 @@ public class Calculadora extends JFrame
 		
 		objPaneles.panel2.add(objBoton.normal);
 		objPaneles.panel2.add(objBoton.sci);
-		
-		
-		objBoton.fixed.addActionListener(new FixedBoton());
 		objPaneles.panel2.add(objBoton.fixed);
 		
 		frame.add(objPaneles.panel2, BorderLayout.WEST);
@@ -95,48 +98,6 @@ public class Calculadora extends JFrame
 		panel.add(objBoton.division);
 		panel.add(objBoton.igual);
 		
-		
-		
-		/*panelFixed.setLayout(new GridLayout(7,4));
-		
-		panelFixed.add(objBoton.uno);
-		panelFixed.add(objBoton.dos);
-		panelFixed.add(objBoton.tres);
-		panelFixed.add(objBoton.cuatro);
-		
-		panelFixed.add(objBoton.cinco);
-		panelFixed.add(objBoton.seis);
-		panelFixed.add(objBoton.siete);
-		panelFixed.add(objBoton.ocho);
-		
-		panelFixed.add(objBoton.nueve);
-		panelFixed.add(objBoton.cero);
-		panelFixed.add(objBoton.c);
-		panelFixed.add(objBoton.ac);
-		
-		panelFixed.add(objBoton.inv);
-		panelFixed.add(objBoton.ret);
-		panelFixed.add(objBoton.porc);
-		panelFixed.add(objBoton.punto);
-		
-		panelFixed.add(objBoton.cuadrado);
-		panelFixed.add(objBoton.raiz);
-		panelFixed.add(objBoton.cubo);
-		panelFixed.add(objBoton.raizC);
-		
-		panelFixed.add(objBoton.suma);
-		panelFixed.add(objBoton.resta);
-		
-		panelFixed.add(objBoton.multiplicacion);
-		panelFixed.add(objBoton.division);
-		panelFixed.add(objBoton.igual);
-		
-		panelFixed.add(new JLabel(""));
-		panelFixed.add(displayFixed);
-		
-		
-		panelFixed.setVisible(false);
-		*/
 		frame.add(panel, BorderLayout.CENTER);
 		//frame.add(panelFixed, BorderLayout.CENTER);
 		
@@ -149,7 +110,6 @@ public class Calculadora extends JFrame
 		frame.setResizable(false); 						
 		frame.setVisible(true); 	
 		//System.out.println(mode);
-		
 		//System.out.println(obj.mode);
 	}
 	

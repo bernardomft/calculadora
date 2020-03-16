@@ -2,7 +2,7 @@ package calculadora;
 
 import javax.swing.JButton;
 
-public class Botones 
+public class Botones extends Calculadora
 {
 	 JButton	uno = new JButton("1");	
 	 JButton	dos = new JButton("2");
@@ -35,9 +35,9 @@ public class Botones
 	 JButton	igual = new JButton("=");
 	
 	
-	static JButton	normal = new JButton("NORMAL MODE");
-	static JButton	fixed = new JButton("FIXED MODE");
-	static JButton	sci = new JButton("SCI MODE");
+	 JButton	normal = new JButton("NORMAL MODE");
+	 JButton	fixed = new JButton("FIXED MODE");
+	 JButton	sci = new JButton("SCI MODE");
 	
 	public Botones()
 	{
@@ -73,9 +73,6 @@ public class Botones
 		
 		igual.addActionListener(new IgualBoton());
 		normal.addActionListener(new NormalBoton());
-	}
-	public static void main(String[] args)
-	{
-		
+		fixed.addActionListener(new FixedBoton());
 	}
 }
